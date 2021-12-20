@@ -1,0 +1,8 @@
+#Telegram Curl Bot by Honza Prokupek
+
+DEFAULT_GROUP_ID="-tg_group-id"
+BOT_TOKEN="tg_bot_token"
+
+#example nagios notification
+#/usr/bin/send_telegram.sh "*NAGIOS*%0A*State:* %60$SERVICESTATE$%60%0A*Host:* %60$HOSTNAME$%60%0A*Service:* %60$SERVICEDESC$%60%0A*Info:* %60$SERVICEOUTPUT$%60" $CONTACTEMAIL$
+

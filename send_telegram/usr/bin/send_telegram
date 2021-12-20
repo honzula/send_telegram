@@ -1,0 +1,32 @@
+#!/bin/bash
+
+#Made by Honza Prokupek - www.HonzaProkupek.cz
+#v 1.0 2021-12-20
+
+source /etc/send_telegram
+
+
+if [ -z "$2" ]; then
+    GROUP_ID=$DEFAULT_GROUP_ID
+else
+    GROUP_ID=$2
+fi
+
+# this 3 checks (if) are not necessary but should be convenient
+if [ "$1" == "-h" ]; then
+  echo "Usage: `basename $0` \"text message\" \"tg_chanel_id\"" 
+  exit 0
+fi
+
+if [ -z "$1" ]
+  then
+    echo "Add message text as second arguments"
+    exit 1
+fi
+
+
+
+/usr/bin/curl -s --data "text=$1" --data "parse_mode=MarkdownV2" --data "chat_id=$GROUP_ID" 'https://api.telegram.org/bot'$BOT_TOKEN'/sendMessage' > /dev/null
+
+exit 0
+
